@@ -31,7 +31,7 @@ namespace DesafioFundamentos.Models
             // Verifica se a string digitada não é nula ou vazia
             if (string.IsNullOrEmpty(modelo) && string.IsNullOrEmpty(cor) && string.IsNullOrEmpty(placa))
             {
-                Console.WriteLine("Os dados do veículo são de preenchimento obrigatório.");
+                Console.WriteLine("\nOs dados do veículo são de preenchimento obrigatório.");
                 return;
             }
             else
@@ -42,7 +42,7 @@ namespace DesafioFundamentos.Models
 
         public Carro VeiculoExiste()
         {
-            Console.WriteLine("Digite a placa do veículo para remover:");
+            Console.WriteLine("Digite a placa do veículo para remover:\n");
 
             string placaProcurada = Console.ReadLine();
 
@@ -64,10 +64,10 @@ namespace DesafioFundamentos.Models
                 // Verifica se o tempo de permanência é maior que zero
                 do
                 {
-                    Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
+                    Console.Write("\nDigite a quantidade de horas que o veículo permaneceu estacionado: ");
                     horas = Convert.ToInt32(Console.ReadLine());
 
-                    if (horas == 0) Console.WriteLine("O tempo de permanência tem quer ser de no mínimo uma hora.");
+                    if (horas == 0) Console.WriteLine("\nO tempo de permanência tem quer ser de no mínimo uma hora.");
 
                 } while (horas == 0);
 
@@ -75,11 +75,11 @@ namespace DesafioFundamentos.Models
 
                 veiculos.Remove(carro);
 
-                Console.WriteLine($"O veículo {carro.placa} foi removido e o preço total foi de: R$ {valorTotal}");
+                Console.WriteLine($"\nO veículo {carro.placa} foi removido e o preço total foi de: R$ {valorTotal}");
             }
             else
             {
-                Console.WriteLine("Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente");
+                Console.WriteLine("\nDesculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente");
             }
         }
 
@@ -99,7 +99,7 @@ namespace DesafioFundamentos.Models
             }
             else
             {
-                Console.WriteLine("Não há veículos estacionados.");
+                Console.WriteLine("\nNão há veículos estacionados.");
             }
         }
     }

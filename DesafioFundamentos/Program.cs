@@ -6,7 +6,7 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 decimal precoInicial = 0;
 decimal precoPorHora = 0;
 
-Console.Write("Seja bem vindo ao sistema de estacionamento!\n" +
+Console.Write("Seja bem vindo ao sistema de estacionamento!\n\n" +
                   "Digite o preço inicial: R$ ");
 precoInicial = Convert.ToDecimal(Console.ReadLine());
 
