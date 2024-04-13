@@ -22,10 +22,17 @@ namespace DesafioFundamentos.Models
 
         public override string ToString()
         {
+            int tamanhoPadding = 10;
+
+            //Ajusta o padding dos campos
+            string paddingModelo = new string(' ', tamanhoPadding - this.modelo.Length);
+            string paddingCor = new string(' ', tamanhoPadding - this.cor.Length);
+            string paddingPlaca = new string(' ', tamanhoPadding - this.placa.Length);
+
             StringBuilder st = new StringBuilder();
-            st.Append("Modelo: " + this.modelo);
-            st.Append(" Cor: " + this.cor);
-            st.Append(" Placa: " + this.placa);
+            st.Append("Modelo: " + paddingModelo + this.modelo + " |");
+            st.Append(" Cor: " + paddingCor + this.cor + " |");
+            st.Append(" Placa: " + paddingPlaca + this.placa + " |");
             return st.ToString();
         }
     }
