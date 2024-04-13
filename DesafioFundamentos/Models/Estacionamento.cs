@@ -31,12 +31,12 @@ namespace DesafioFundamentos.Models
             cor = FormatarDados(cor);
             Console.Write("Placa: ");
             placa = Console.ReadLine();
-            placa = placa.ToUpper();
+            placa = FormatarPlaca(placa);
 
             // Verifica se a string digitada não é nula ou vazia
-            if (string.IsNullOrEmpty(modelo) && string.IsNullOrEmpty(cor) && string.IsNullOrEmpty(placa))
+            if (string.IsNullOrEmpty(modelo) || string.IsNullOrEmpty(cor) || string.IsNullOrEmpty(placa))
             {
-                Console.WriteLine("\nOs dados do veículo são de preenchimento obrigatório.");
+                Console.WriteLine("\nOs dados do veículo são de preenchimento obrigatório. A placa deve estar no formato ABC-1234");
                 return;
             }
             else
@@ -60,14 +60,49 @@ namespace DesafioFundamentos.Models
         // Formatar modelo e cor do veículo
         private string FormatarDados(string dado)
         {
-            char[] primeiraLetra = new char[1];
-            primeiraLetra[0] = dado.ElementAt(0);
-            string st = new string(primeiraLetra);
-            dado = dado.Remove(0, 1);
-            StringBuilder sb = new StringBuilder();
-            sb.Append(st.ToUpper());
-            sb.Append(dado.ToLower());
-            return sb.ToString();
+            if (!string.IsNullOrEmpty(dado))
+            {
+                char[] primeiraLetra = new char[1];
+                primeiraLetra[0] = dado.ElementAt(0);
+                string st = new string(primeiraLetra);
+                dado = dado.Remove(0, 1);
+                StringBuilder sb = new StringBuilder();
+                sb.Append(st.ToUpper());
+                sb.Append(dado.ToLower());
+                return sb.ToString();
+            }
+            return string.Empty;
+        }
+
+        // Confere se o formato da placa está de acordo com as regras
+        private string FormatarPlaca(string placa)
+        {
+            if (placa.Length != 8)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                string placaLetras = placa.Remove(3, 5).ToUpper();
+                string placaSeparador = placa[3].ToString();
+                string placaNumeros = placa.Remove(0, 4);
+
+                bool placaLetrasOk = placaLetras.All(letra => char.IsLetter(letra));
+                bool placaNumerosOk = placaNumeros.All(numero => char.IsNumber(numero));
+                bool placaSeparadorOk;
+
+                if (placaSeparador == "-") placaSeparadorOk = true;
+                else placaSeparadorOk = false;
+
+                if (placaLetrasOk && placaSeparadorOk && placaNumerosOk)
+                {
+                    return (placaLetras + placaSeparador + placaNumeros);
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
         }
 
         public Carro VeiculoExiste()
