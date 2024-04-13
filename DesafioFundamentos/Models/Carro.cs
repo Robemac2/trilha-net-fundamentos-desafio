@@ -9,9 +9,9 @@ namespace DesafioFundamentos.Models
 {
     internal class Carro
     {
-        private readonly string modelo;
-        private readonly string cor;
-        private readonly string placa;
+        public string modelo { get; }
+        public string cor {  get; }
+        public string placa { get; }
 
         public Carro(string modelo, string cor, string placa)
         {
