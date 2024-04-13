@@ -15,6 +15,8 @@ namespace DesafioFundamentos.Models
 
         public void AdicionarVeiculo()
         {
+            Console.Clear();
+
             string modelo, cor, placa;
 
             Console.WriteLine("Digite os dados do veículo para estacionar:\n");
@@ -83,6 +85,8 @@ namespace DesafioFundamentos.Models
 
         public void ListarVeiculos()
         {
+            Console.Clear();
+
             // Verifica se há veículos no estacionamento
             if (veiculos.Any())
             {
