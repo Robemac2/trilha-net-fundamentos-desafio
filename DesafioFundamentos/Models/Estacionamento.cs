@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
@@ -23,10 +25,13 @@ namespace DesafioFundamentos.Models
 
             Console.Write("Modelo: ");
             modelo = Console.ReadLine();
+            modelo = FormatarDados(modelo);
             Console.Write("Cor: ");
             cor = Console.ReadLine();
+            cor = FormatarDados(cor);
             Console.Write("Placa: ");
             placa = Console.ReadLine();
+            placa = placa.ToUpper();
 
             // Verifica se a string digitada não é nula ou vazia
             if (string.IsNullOrEmpty(modelo) && string.IsNullOrEmpty(cor) && string.IsNullOrEmpty(placa))
@@ -36,7 +41,7 @@ namespace DesafioFundamentos.Models
             }
             else
             {
-                veiculos.Add(new Carro(modelo, cor, placa.ToUpper()));
+                veiculos.Add(new Carro(modelo, cor, placa));
             }
         }
 
@@ -50,6 +55,19 @@ namespace DesafioFundamentos.Models
             veiculos.Add(new Carro("Fox", "Vermelho", "SKR-9267"));
             veiculos.Add(new Carro("Gol", "Azul", "NFK-6220"));
             veiculos.Add(new Carro("Toro", "Roxo", "DWJ-5018"));
+        }
+
+        // Formatar modelo e cor do veículo
+        private string FormatarDados(string dado)
+        {
+            char[] primeiraLetra = new char[1];
+            primeiraLetra[0] = dado.ElementAt(0);
+            string st = new string(primeiraLetra);
+            dado = dado.Remove(0, 1);
+            StringBuilder sb = new StringBuilder();
+            sb.Append(st.ToUpper());
+            sb.Append(dado.ToLower());
+            return sb.ToString();
         }
 
         public Carro VeiculoExiste()
