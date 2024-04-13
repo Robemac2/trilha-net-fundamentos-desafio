@@ -40,6 +40,18 @@ namespace DesafioFundamentos.Models
             }
         }
 
+        public void VeiculosExemplo()
+        {
+            //Adiciona veículos na lista
+            veiculos.Add(new Carro("Onix", "Preto", "AHP-4927"));
+            veiculos.Add(new Carro("Palio", "Verde", "DML-2848"));
+            veiculos.Add(new Carro("Fit", "Prata", "PDW-9173"));
+            veiculos.Add(new Carro("Corola", "Preto", "CID-1804"));
+            veiculos.Add(new Carro("Fox", "Vermelho", "SKR-9267"));
+            veiculos.Add(new Carro("Gol", "Azul", "NFK-6220"));
+            veiculos.Add(new Carro("Toro", "Roxo", "DWJ-5018"));
+        }
+
         public Carro VeiculoExiste()
         {
             Console.WriteLine("Digite a placa do veículo para remover:\n");
