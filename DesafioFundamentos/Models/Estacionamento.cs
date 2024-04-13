@@ -2,31 +2,39 @@ namespace DesafioFundamentos.Models
 {
     public class Estacionamento
     {
-        private decimal precoInicial = 0;
-        private decimal precoPorHora = 0;
-        private List<string> veiculos = new List<string>();
+        private decimal precoInicial;
+        private decimal precoPorHora;
+        private List<Carro> veiculos;
 
         public Estacionamento(decimal precoInicial, decimal precoPorHora)
         {
             this.precoInicial = precoInicial;
             this.precoPorHora = precoPorHora;
+            this.veiculos = new List<Carro>();
         }
 
         public void AdicionarVeiculo()
         {
-            Console.WriteLine("Digite a placa do veículo para estacionar:");
+            string modelo, cor, placa;
 
-            string placa = Console.ReadLine();
+            Console.WriteLine("Digite os dados do veículo para estacionar:\n");
+
+            Console.Write("Modelo: ");
+            modelo = Console.ReadLine();
+            Console.Write("Cor: ");
+            cor = Console.ReadLine();
+            Console.Write("Placa: ");
+            placa = Console.ReadLine();
 
             // Verifica se a string digitada não é nula ou vazia
-            if (string.IsNullOrEmpty(placa))
+            if (string.IsNullOrEmpty(modelo) && string.IsNullOrEmpty(cor) && string.IsNullOrEmpty(placa))
             {
-                Console.WriteLine("A placa do veículo é um campo de preenchimento obrigatório.");
+                Console.WriteLine("Os dados do veículo são de preenchimento obrigatório.");
                 return;
             }
             else
             {
-                veiculos.Add(placa);
+                veiculos.Add(new Carro(modelo, cor, placa.ToUpper()));
             }
         }
 
