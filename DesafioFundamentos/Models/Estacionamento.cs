@@ -86,11 +86,11 @@ namespace DesafioFundamentos.Models
             // Verifica se há veículos no estacionamento
             if (veiculos.Any())
             {
-                Console.WriteLine("Os veículos estacionados são:");
+                Console.WriteLine("Os veículos estacionados são:\n");
 
-                foreach (string veiculo in veiculos)
+                foreach (Carro veiculo in veiculos)
                 {
-                    Console.WriteLine(veiculo.ToUpper());
+                    Console.WriteLine(veiculo.ToString());
                 }
             }
             else
