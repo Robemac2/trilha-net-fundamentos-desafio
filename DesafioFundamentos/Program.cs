@@ -16,6 +16,34 @@ precoPorHora = Convert.ToDecimal(Console.ReadLine());
 // Instancia a classe Estacionamento, já com os valores obtidos anteriormente
 Estacionamento es = new Estacionamento(precoInicial, precoPorHora);
 
+bool carregarExemplo = true;
+
+// Opção para carregar a lista de veículos de exemplo
+while (carregarExemplo)
+{
+    Console.Clear();
+    Console.Write("\nDeseja carregar a lista de veículos de Exemplo?\n");
+    Console.WriteLine("1 - Sim");
+    Console.WriteLine("2 - Não\n");
+    int exemplo = Convert.ToInt32(Console.ReadLine());
+
+    switch (exemplo)
+    {
+        case 1:
+            es.VeiculosExemplo();
+            carregarExemplo = false;
+            break;
+        case 2:
+            carregarExemplo = false;
+            break;
+        default:
+            Console.WriteLine("\nOpção inválida");
+            Console.WriteLine("\nPressione uma tecla para continuar");
+            Console.ReadLine();
+            break;
+    }
+}
+
 string opcao = string.Empty;
 bool exibirMenu = true;
 
