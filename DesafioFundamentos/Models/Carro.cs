@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DesafioFundamentos.Models
 {
-    internal class Carro
+    public class Carro
     {
         public string modelo { get; }
         public string cor {  get; }

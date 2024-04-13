@@ -38,6 +38,16 @@ namespace DesafioFundamentos.Models
             }
         }
 
+        public Carro VeiculoExiste()
+        {
+            Console.WriteLine("Digite a placa do veículo para remover:");
+
+            string placaProcurada = Console.ReadLine();
+
+            //Procura o veículo na lista do estacionamento
+            return veiculos.Find(carro => carro.placa == placaProcurada.ToUpper());
+        }
+
         public void RemoverVeiculo()
         {
             Console.WriteLine("Digite a placa do veículo para remover:");
